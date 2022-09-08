@@ -1,5 +1,14 @@
-# All Endpoints except /signup require: 
+# Restaurant Orders Server
+
+# URL https://archis-restaurants.herokuapp.com/
+
+
+# All Endpoints except /auth/signup require: 
 - Headers: {"Authorization": "Bearer <TOKEN>"}
+# Auth Endpoints: 
+- /auth/signup
+- /auth/login
+
 
 # Endpoint: /restaurants
 
