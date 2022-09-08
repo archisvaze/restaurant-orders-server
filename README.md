@@ -105,7 +105,7 @@
 ```
 
 
-# Endpoint: /orders
+## Endpoint: /orders
 
 ### POST /restaurants/ : Creates new restaurant
 - Headers: {"Content-Type": "application/json"}
