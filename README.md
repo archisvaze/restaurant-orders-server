@@ -2,9 +2,6 @@
 
 ### URL https://archis-restaurants.herokuapp.com/
 
-- Postman JSON Link : https://www.getpostman.com/collections/87ad79d441307e50eb7c
-
-
 ### All Endpoints except /auth/signup require: 
 - Headers: {"Authorization": "Bearer <TOKEN>"}
 ### Auth Endpoints: 
