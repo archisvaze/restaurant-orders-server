@@ -1,3 +1,5 @@
+# All Endpoints except /signup require: 
+- Headers: {"Authorization": "Bearer <TOKEN>"}
 
 # Endpoint: /restaurants
 
