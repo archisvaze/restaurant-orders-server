@@ -70,9 +70,6 @@ router.post("/login", async (req, res) => {
             error: "Invalid Password"
         })
     }
-
-
-
 })
 
 

@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const jwt = require("jsonwebtoken")
 require("dotenv").config();
 app.use(express.urlencoded({ extended: false }));
 //connect to mongoDB
@@ -35,6 +36,9 @@ app.use(express.json());
 const authRouter = require("./routes/auth_router")
 app.use('/auth', authRouter)
 
+//call middleware
+app.use(authenticateMiddleware)
+
 const restaurantRouter = require("./routes/restaurants_router")
 app.use('/restaurants', restaurantRouter)
 
@@ -42,3 +46,24 @@ const orderRouter = require("./routes/orders_router")
 app.use('/orders', orderRouter);
 
 
+
+function authenticateMiddleware(req, res, next) {
+    const authHeader = req.headers["authorization"];
+
+    if (authHeader === undefined) {
+        return res.status(400).json({ error: "No token was provided" })
+    }
+
+    const token = authHeader.split(" ")[1];
+    if (token === undefined) {
+        return res.status(400).json({ error: "Proper token was provided" })
+    }
+
+    try {
+        const payload = jwt.verify(token, process.env.ACCESS_TOKEN);
+        console.log(payload)
+        next()
+    } catch (error) {
+        return res.status(400).json({ error: error })
+    }
+}
