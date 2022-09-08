@@ -1,4 +1,3 @@
-# Food Ordering App Backend
 
 # Endpoint: /restaurants
 
