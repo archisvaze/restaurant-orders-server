@@ -15,7 +15,6 @@ router.post("/signup", async (req, res) => {
         })
     }
     const existingUsers = await Managers_Collection.find({ email: email });
-    console.log(existingUsers)
     if (existingUsers.length > 0) {
         return res.status(400).json({
             error: "Email Already exists, Signin instead!"
