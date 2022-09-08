@@ -1,16 +1,18 @@
 # Restaurant Orders Server
 
-# URL https://archis-restaurants.herokuapp.com/
+## URL https://archis-restaurants.herokuapp.com/
+
+### Postman JSON Link : https://www.getpostman.com/collections/87ad79d441307e50eb7c
 
 
-# All Endpoints except /auth/signup require: 
+### All Endpoints except /auth/signup require: 
 - Headers: {"Authorization": "Bearer <TOKEN>"}
-# Auth Endpoints: 
+### Auth Endpoints: 
 - /auth/signup
 - /auth/login
 
 
-# Endpoint: /restaurants
+## Endpoint: /restaurants
 
 ### POST /restaurants/ : Creates new restaurant
 - Headers: {"Content-Type": "application/json"}
