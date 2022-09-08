@@ -1,8 +1,8 @@
 # Restaurant Orders Server
 
-## URL https://archis-restaurants.herokuapp.com/
+### URL https://archis-restaurants.herokuapp.com/
 
-### Postman JSON Link : https://www.getpostman.com/collections/87ad79d441307e50eb7c
+- Postman JSON Link : https://www.getpostman.com/collections/87ad79d441307e50eb7c
 
 
 ### All Endpoints except /auth/signup require: 
