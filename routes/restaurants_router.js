@@ -121,6 +121,58 @@ router.get("/:id/orders", async (req, res) => {
 })
 
 
+// Get revenue of a restaurant for given time range.
+router.get("/:id/revenue", async (req, res) => {
+
+    const x = new Date('2013-05-23').getTime();
+    const y = new Date('2013-05-24').getTime();
+
+    console.log(x, y)
+    let startDate = req.query.start_date;
+    let endDate = req.query.end_date;
+    let revenue = 0;
+    let endTime = new Date().getTime();
+
+
+    try {
+        let restaurant = await Restaurants_Collection.findById(req.params.id)
+            .populate("dishes", "name price")
+            .populate("orders", "status total items createdAt updatedAt")
+
+        for (let order of restaurant.orders) {
+            if (startDate != null || startDate != undefined) {
+                let startTime = new Date(startDate).getTime();
+                if (endDate != null || endDate != undefined) {
+                    endTime = new Date(endTime).getTime();
+                }
+                let orderTime = new Date(order?.updatedAt).getTime();
+                if (orderTime >= startTime && orderTime <= endTime) {
+                    revenue += Number(order?.total)
+                }
+            }
+            else {
+                revenue += Number(order?.total);
+            }
+        }
+
+        if (startDate != null || startDate != undefined) {
+            if (endDate != null || endDate != undefined) {
+                return res.status(200).json({ startDate, endDate, revenue })
+            }
+            return res.status(200).json({ startDate, revenue })
+        }
+        return res.status(200).json({ revenue })
+
+
+
+
+    } catch (error) {
+        return res.status(400).json({
+            error: error.message
+        })
+    }
+})
+
 module.exports = router;
 
 
