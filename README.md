@@ -4,9 +4,6 @@
 
 ### All Endpoints except /auth require: 
 - Headers: {"Authorization": "Bearer TOKEN"}
-### Auth Endpoints: 
-- /auth/signup
-- /auth/login
 
 
 ## Endpoint: /restaurants
