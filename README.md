@@ -2,7 +2,7 @@
 
 ### URL https://archis-restaurants.herokuapp.com/
 
-### All Endpoints except /auth/signup require: 
+### All Endpoints except /auth require: 
 - Headers: {"Authorization": "Bearer TOKEN"}
 ### Auth Endpoints: 
 - /auth/signup
